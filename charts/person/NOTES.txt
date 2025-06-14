@@ -1,0 +1,7 @@
+1. To install the chart:
+   helm install omnixys-person ./charts/omnixys-person --namespace omnixys
+
+2. Access the service via:
+   http://person.omnixys.local
+
+3. Make sure you have an Ingress controller running.

@@ -1,0 +1,17 @@
+apiVersion: v2
+name: omnixys-person-service
+description: A Helm chart for the omnixys-person service
+type: application
+version: "2025.06.14"  # Version des Charts selbst
+appVersion: "2025.06.10" # Version der Anwendung, die deployed wird
+maintainers:
+  - name: Caleb Gyamfi
+    url: https://omnixys.com
+
+keywords:
+  - person
+  - microservice
+  - omnixys
+
+annotations:
+  category: microservice

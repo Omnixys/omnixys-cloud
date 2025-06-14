@@ -1,0 +1,12 @@
+replicaCount: 3
+image:
+  pullPolicy: Always
+env:
+  ACTIVE_PROFILE: prod
+  HTTPS: "true"
+secrets:
+  MONGODB_URI: mongodb://mongo.prod.svc.cluster.local:27017
+  MONGODB_USER_NAME: produser
+  MONGODB_USER_PASSWORT: securepass
+  KC_SERVICE_CLIENT_ID: prod-client
+  KC_SERVICE_SECRET: prod-secret

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: omnixys
+  labels:
+    name: omnixys
+    environment: production # oder staging / dev
+    team: platform          # optional: zuständiges Team
+    app.kubernetes.io/part-of: omnixys
+  app.kubernetes.io/managed-by: Helm
+  annotations:
+    monitoring: "enabled"   # für Prometheus o.Ä.
+    logging: "omnixys-logstream-service"
+    environment: production

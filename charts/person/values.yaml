@@ -1,0 +1,93 @@
+# Anzahl der Replikate (Pods)
+replicaCount: 1
+
+# Container-Image-Konfiguration
+image:
+  repository: ghcr.io/omnixys/person
+  tag: latest
+  pullPolicy: IfNotPresent
+
+# Secret zum Authentifizieren gegen ein Container-Registry
+imagePullSecrets:
+  - name: regcred
+
+# Helm-Overrides (optional, sonst auto-generiert)
+nameOverride: ""
+fullnameOverride: ""
+
+# Kubernetes Service-Konfiguration
+service:
+  type: ClusterIP
+  port: 7001
+  # type: LoadBalancer
+
+containerPort: 7001
+
+securityContext:
+  runAsUser: 1000
+  runAsGroup: 3000
+  fsGroup: 2000
+
+
+# Umgebungsvariablen
+env:
+  ACTIVE_PROFILE: dev
+  SERVER_PORT: 7001
+  TEST_SERVER_PORT: 9001
+
+  TEST_MONGODB_DATABASE: ""
+  MONGODB_DATABASE: ""
+  HTTPS: "false"
+  KEYS_PATH: /keys
+
+secrets:
+  MONGODB_URI: ""
+  MONGODB_USER_NAME: ""
+  MONGODB_USER_PASSWORT: ""
+
+  KC_SERVICE_HOST: ""
+  KC_SERVICE_PORT: ""
+  KC_SERVICE_REALM: ""
+  KC_SERVICE_CLIENT_ID: ""
+  KC_SERVICE_SECRET: ""
+
+  KAFKA_HOST: ""
+  TEMPO_HOST: ""
+
+  # Security/Monitoring Tokens (als Secret empfohlen)
+  NVD_API_KEY: ""
+  SNYK_TOKEN: ""
+  SONAR_TOKEN: ""
+  CODECOV_TOKEN: ""
+
+# Ressourcenbegrenzung (Requests/Limits)
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
+
+# Health-Checks
+livenessProbe:
+  path: /actuator/health/liveness
+  port: 7001
+  initialDelaySeconds: 30
+  periodSeconds: 10
+
+readinessProbe:
+  path: /actuator/health/readiness
+  port: 7001
+  initialDelaySeconds: 15
+  periodSeconds: 10
+
+ingress:
+  enabled: true
+  host: person.omnixys.local
+  tlsSecretName: person-tls-secret
+
+
+tls:
+  key: ""
+  crt: ""

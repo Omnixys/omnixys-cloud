@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "omnixys-person.fullname" . }}
+  namespace: {{ include "omnixys-person.namespace" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "omnixys-person.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/component: ingress
+    app.kubernetes.io/part-of: omnixys
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    nginx.ingress.kubernetes.io/proxy-body-size: "20m"
+spec:
+  tls:
+    - hosts:
+        - person.omnixys.local
+      secretName: {{ .Values.ingress.tlsSecretName | default "person-tls-secret" }}
+
+  rules:
+    - host: person.omnixys.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ include "omnixys-person.fullname" . }}
+                port:
+                  number: {{ .Values.service.port }}

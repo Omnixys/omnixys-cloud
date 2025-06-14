@@ -1,0 +1,32 @@
+
+# .github/workflows/helm-lint.yml
+name: Helm Lint
+
+on: 
+    workflow_dispatch:
+    # [push, pull_request]
+
+jobs:
+  helm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Helm
+        uses: azure/setup-helm@v3
+      - name: Lint Helm Chart
+        run: helm lint ./charts
+
+        # Schritt 3: CI/CD Helm-Deploy
+      - name: Helm Upgrade (Dev)
+        run: |
+          helm upgrade --install person-dev ./charts/person \
+            --namespace dev \
+            -f charts/person/values-dev.yaml
+      
+      - name: Helm Upgrade (Prod)
+        if: github.ref == 'refs/heads/main'
+        run: |
+          helm upgrade --install person-prod ./charts/person \
+            --namespace prod \
+            -f charts/person/values-prod.yaml
+      

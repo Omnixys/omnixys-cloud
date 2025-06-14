@@ -1,0 +1,93 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "omnixys-person.fullname" . }}
+  namespace: {{ include "omnixys-person.namespace" . }}
+  labels:
+    app: {{ include "omnixys-person.name" . }}
+    app.kubernetes.io/name: {{ include "omnixys-person.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.replicaCount }} # Anzahl der Pods, die du haben möchtest
+  selector:
+    matchLabels:
+      app: {{ include "omnixys-person.name" . }} # Label zur Auswahl der Pods
+      app.kubernetes.io/name: {{ include "omnixys-person.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "omnixys-person.name" . }}
+    spec:
+      securityContext:
+        runAsUser: {{ .Values.securityContext.runAsUser }}
+        runAsGroup: {{ .Values.securityContext.runAsGroup }}
+        fsGroup: {{ .Values.securityContext.fsGroup }}
+
+
+      volumes:
+      - name: app-logs
+        emptyDir: {}
+        
+      - name: tls-cert
+        secret:
+            secretName: {{ include "omnixys-person.fullname" . }}-tls
+
+      - name: bankkonto-secrets
+        secret:
+          secretName: bankkonto-secrets
+
+      # Volume für das Log-Verzeichnis
+      - name: log-volume
+        emptyDir: {}
+        # hostPath:
+        #   path: /Users/gentlebookpro/Projekte/UNI/SWE/bankkonto-verwalter-nestjs/log
+        #   type: Directory
+
+      # Volume für die Konfiguration
+      - name: app-config
+        configMap:
+          name: {{ include "omnixys-person.fullname" . }}-config
+        # hostPath:
+        #   path: /Users/gentlebookpro/Projekte/UNI/SWE/bankkonto-verwalter-nestjs/.extras/compose/bankkonto/app.yml
+        #   type: File
+
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullSecrets: {{- toYaml .Values.imagePullSecrets | nindent 8 }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+
+          volumeMounts:
+          - name: bankkonto-secrets
+            mountPath: /opt/app/dist/config/resources/tls  # Pfad im Container
+            readOnly: true
+          - name: app-config
+            mountPath: /opt/app/dist/config/resources/app.yml
+            readOnly: true
+          # Bind Mount für das Log-Verzeichnis
+          - name: log-volume
+            mountPath: /opt/app/log
+          envFrom:
+            - configMapRef:
+                name: {{ include "omnixys-person.fullname" . }}-config
+            - secretRef:
+                name: {{ include "omnixys-person.fullname" . }}-secret
+          
+          ports:
+            - containerPort: {{ .Values.service.port }}
+              name: http
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.livenessProbe.path }}
+              port: {{ .Values.livenessProbe.port }}
+            initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.readinessProbe.path }}
+              port: {{ .Values.readinessProbe.port }}
+            initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
