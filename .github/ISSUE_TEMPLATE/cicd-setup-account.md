@@ -26,11 +26,11 @@ Einrichten eines automatisierten Build- und Push-Workflows für `omnixys-account
 
 ## 🔧 Konfiguration
 
-| Parameter         | Wert                                        |
-|------------------|---------------------------------------------|
-| Image Repo        | `ghcr.io/omnixys/account-service:latest`   |
-| Registry Login    | `GITHUB_TOKEN`                             |
-| Branch            | `main`                                     |
+| Parameter         | Wert                                             |
+|------------------|--------------------------------------------------|
+| Image Repo        | `ghcr.io/omnixys/account-service:latest`     |
+| Registry Login    | `GITHUB_TOKEN`                                  |
+| Branch            | `main`                                          |
 
 ---
 
