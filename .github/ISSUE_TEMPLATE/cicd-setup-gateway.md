@@ -19,18 +19,18 @@ Einrichten eines automatisierten Build- und Push-Workflows für `omnixys-gateway
   - Checkout
   - Login zu `ghcr.io`
   - Docker Build & Tag
-  - Docker Push nach `ghcr.io/omnixys/gateway-service:latest`
+  - Docker Push nach `ghcr.io/omnixys/gateway:latest`
 - [ ] Trigger: Push in `charts/omnixys-gateway/**` auf Branch `main`
 
 ---
 
 ## 🔧 Konfiguration
 
-| Parameter         | Wert                                             |
-|------------------|--------------------------------------------------|
-| Image Repo        | `ghcr.io/omnixys/gateway-service:latest`     |
-| Registry Login    | `GITHUB_TOKEN`                                  |
-| Branch            | `main`                                          |
+| Parameter      | Wert                             |
+| -------------- | -------------------------------- |
+| Image Repo     | `ghcr.io/omnixys/gateway:latest` |
+| Registry Login | `GITHUB_TOKEN`                   |
+| Branch         | `main`                           |
 
 ---
 

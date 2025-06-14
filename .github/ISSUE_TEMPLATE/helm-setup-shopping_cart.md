@@ -2,7 +2,8 @@
 name: 📦 Helm Chart Setup – omnixys-shopping-cart
 about: Helm-Chart für den Service omnixys-shopping-cart erstellen
 title: "[Cloud] Helm-Chart für omnixys-shopping-cart konfigurieren"
-labels: ["type:infra", "service:shoppingcart", "kubernetes", "helm", "priority:high"]
+labels:
+  ["type:infra", "service:shoppingcart", "kubernetes", "helm", "priority:high"]
 assignees: []
 ---
 
@@ -18,6 +19,7 @@ Ein funktionsfähiges Helm-Chart für `omnixys-shopping-cart` unter `charts/omni
 - [ ] `values.yaml` mit Image, Ports, Ressourcen definieren
 - [ ] `templates/` mit Deployment, Service und (optional) Ingress ausstatten
 - [ ] Lokaler Test via:
+
   ```bash
   helm install omnixys-shopping-cart ./charts/omnixys-shopping-cart --namespace omnixys
   ```
@@ -26,12 +28,12 @@ Ein funktionsfähiges Helm-Chart für `omnixys-shopping-cart` unter `charts/omni
 
 ## 🔧 Konfiguration
 
-| Parameter       | Wert                                            |
-|----------------|--------------------------------------------------|
-| Namespace       | `omnixys`                                       |
-| Image           | `ghcr.io/omnixys/shopping-cart-service:latest`     |
-| Container Port  | `8080`                                          |
-| Service Port    | siehe `port-konvention.md`                      |
+| Parameter      | Wert                                   |
+| -------------- | -------------------------------------- |
+| Namespace      | `omnixys`                              |
+| Image          | `ghcr.io/omnixys/shopping-cart:latest` |
+| Container Port | siehe `port-konvention.md`             |
+| Service Port   | siehe `port-konvention.md`             |
 
 ---
 

@@ -19,18 +19,18 @@ Einrichten eines automatisierten Build- und Push-Workflows für `omnixys-transac
   - Checkout
   - Login zu `ghcr.io`
   - Docker Build & Tag
-  - Docker Push nach `ghcr.io/omnixys/transaction-service:latest`
+  - Docker Push nach `ghcr.io/omnixys/transaction:latest`
 - [ ] Trigger: Push in `charts/omnixys-transaction/**` auf Branch `main`
 
 ---
 
 ## 🔧 Konfiguration
 
-| Parameter         | Wert                                             |
-|------------------|--------------------------------------------------|
-| Image Repo        | `ghcr.io/omnixys/transaction-service:latest`     |
-| Registry Login    | `GITHUB_TOKEN`                                  |
-| Branch            | `main`                                          |
+| Parameter      | Wert                                 |
+| -------------- | ------------------------------------ |
+| Image Repo     | `ghcr.io/omnixys/transaction:latest` |
+| Registry Login | `GITHUB_TOKEN`                       |
+| Branch         | `main`                               |
 
 ---
 

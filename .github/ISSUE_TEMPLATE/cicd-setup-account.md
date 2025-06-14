@@ -19,7 +19,7 @@ Einrichten eines automatisierten Build- und Push-Workflows für `omnixys-account
   - Checkout
   - Login zu `ghcr.io`
   - Docker Build & Tag
-  - Docker Push nach `ghcr.io/omnixys/account-service:latest`
+  - Docker Push nach `ghcr.io/omnixys/account:latest`
 - [ ] Trigger: Push in `charts/omnixys-account/**` auf Branch `main`
 
 ---
@@ -28,7 +28,7 @@ Einrichten eines automatisierten Build- und Push-Workflows für `omnixys-account
 
 | Parameter         | Wert                                             |
 |------------------|--------------------------------------------------|
-| Image Repo        | `ghcr.io/omnixys/account-service:latest`     |
+| Image Repo        | `ghcr.io/omnixys/account:latest`     |
 | Registry Login    | `GITHUB_TOKEN`                                  |
 | Branch            | `main`                                          |
 

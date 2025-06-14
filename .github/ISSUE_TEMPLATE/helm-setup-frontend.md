@@ -2,7 +2,8 @@
 name: 📦 Helm Chart Setup – omnixys-frontend
 about: Helm-Chart für den Service omnixys-frontend erstellen
 title: "[Cloud] Helm-Chart für omnixys-frontend konfigurieren"
-labels: ["type:infra", "service:frontend", "kubernetes", "helm", "priority:high"]
+labels:
+  ["type:infra", "service:frontend", "kubernetes", "helm", "priority:high"]
 assignees: []
 ---
 
@@ -18,6 +19,7 @@ Ein funktionsfähiges Helm-Chart für `omnixys-frontend` unter `charts/omnixys-f
 - [ ] `values.yaml` mit Image, Ports, Ressourcen definieren
 - [ ] `templates/` mit Deployment, Service und (optional) Ingress ausstatten
 - [ ] Lokaler Test via:
+
   ```bash
   helm install omnixys-frontend ./charts/omnixys-frontend --namespace omnixys
   ```
@@ -26,12 +28,12 @@ Ein funktionsfähiges Helm-Chart für `omnixys-frontend` unter `charts/omnixys-f
 
 ## 🔧 Konfiguration
 
-| Parameter       | Wert                                            |
-|----------------|--------------------------------------------------|
-| Namespace       | `omnixys`                                       |
-| Image           | `ghcr.io/omnixys/frontend-service:latest`     |
-| Container Port  | `8080`                                          |
-| Service Port    | siehe `port-konvention.md`                      |
+| Parameter      | Wert                              |
+| -------------- | --------------------------------- |
+| Namespace      | `omnixys`                         |
+| Image          | `ghcr.io/omnixys/frontend:latest` |
+| Container Port | siehe `port-konvention.md`        |
+| Service Port   | siehe `port-konvention.md`        |
 
 ---
 

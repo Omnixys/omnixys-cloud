@@ -19,18 +19,18 @@ Einrichten eines automatisierten Build- und Push-Workflows für `omnixys-payment
   - Checkout
   - Login zu `ghcr.io`
   - Docker Build & Tag
-  - Docker Push nach `ghcr.io/omnixys/payment-service:latest`
+  - Docker Push nach `ghcr.io/omnixys/payment:latest`
 - [ ] Trigger: Push in `charts/omnixys-payment/**` auf Branch `main`
 
 ---
 
 ## 🔧 Konfiguration
 
-| Parameter         | Wert                                             |
-|------------------|--------------------------------------------------|
-| Image Repo        | `ghcr.io/omnixys/payment-service:latest`     |
-| Registry Login    | `GITHUB_TOKEN`                                  |
-| Branch            | `main`                                          |
+| Parameter      | Wert                             |
+| -------------- | -------------------------------- |
+| Image Repo     | `ghcr.io/omnixys/payment:latest` |
+| Registry Login | `GITHUB_TOKEN`                   |
+| Branch         | `main`                           |
 
 ---
 

@@ -2,7 +2,14 @@
 name: 📦 Helm Chart Setup – omnixys-authentication
 about: Helm-Chart für den Service omnixys-authentication erstellen
 title: "[Cloud] Helm-Chart für omnixys-authentication konfigurieren"
-labels: ["type:infra", "service:authentication", "kubernetes", "helm", "priority:high"]
+labels:
+  [
+    "type:infra",
+    "service:authentication",
+    "kubernetes",
+    "helm",
+    "priority:high",
+  ]
 assignees: []
 ---
 
@@ -18,6 +25,7 @@ Ein funktionsfähiges Helm-Chart für `omnixys-authentication` unter `charts/omn
 - [ ] `values.yaml` mit Image, Ports, Ressourcen definieren
 - [ ] `templates/` mit Deployment, Service und (optional) Ingress ausstatten
 - [ ] Lokaler Test via:
+
   ```bash
   helm install omnixys-authentication ./charts/omnixys-authentication --namespace omnixys
   ```
@@ -26,12 +34,12 @@ Ein funktionsfähiges Helm-Chart für `omnixys-authentication` unter `charts/omn
 
 ## 🔧 Konfiguration
 
-| Parameter       | Wert                                            |
-|----------------|--------------------------------------------------|
-| Namespace       | `omnixys`                                       |
-| Image           | `ghcr.io/omnixys/authentication-service:latest`     |
-| Container Port  | `8080`                                          |
-| Service Port    | siehe `port-konvention.md`                      |
+| Parameter      | Wert                                    |
+| -------------- | --------------------------------------- |
+| Namespace      | `omnixys`                               |
+| Image          | `ghcr.io/omnixys/authentication:latest` |
+| Container Port | siehe `port-konvention.md`              |
+| Service Port   | siehe `port-konvention.md`              |
 
 ---
 

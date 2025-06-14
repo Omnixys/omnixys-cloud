@@ -19,18 +19,18 @@ Einrichten eines automatisierten Build- und Push-Workflows für `omnixys-logstre
   - Checkout
   - Login zu `ghcr.io`
   - Docker Build & Tag
-  - Docker Push nach `ghcr.io/omnixys/logstream-service:latest`
+  - Docker Push nach `ghcr.io/omnixys/logstream:latest`
 - [ ] Trigger: Push in `charts/omnixys-logstream/**` auf Branch `main`
 
 ---
 
 ## 🔧 Konfiguration
 
-| Parameter         | Wert                                             |
-|------------------|--------------------------------------------------|
-| Image Repo        | `ghcr.io/omnixys/logstream-service:latest`     |
-| Registry Login    | `GITHUB_TOKEN`                                  |
-| Branch            | `main`                                          |
+| Parameter      | Wert                               |
+| -------------- | ---------------------------------- |
+| Image Repo     | `ghcr.io/omnixys/logstream:latest` |
+| Registry Login | `GITHUB_TOKEN`                     |
+| Branch         | `main`                             |
 
 ---
 

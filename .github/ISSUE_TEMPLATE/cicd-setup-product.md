@@ -19,18 +19,18 @@ Einrichten eines automatisierten Build- und Push-Workflows für `omnixys-product
   - Checkout
   - Login zu `ghcr.io`
   - Docker Build & Tag
-  - Docker Push nach `ghcr.io/omnixys/product-service:latest`
+  - Docker Push nach `ghcr.io/omnixys/product:latest`
 - [ ] Trigger: Push in `charts/omnixys-product/**` auf Branch `main`
 
 ---
 
 ## 🔧 Konfiguration
 
-| Parameter         | Wert                                             |
-|------------------|--------------------------------------------------|
-| Image Repo        | `ghcr.io/omnixys/product-service:latest`     |
-| Registry Login    | `GITHUB_TOKEN`                                  |
-| Branch            | `main`                                          |
+| Parameter      | Wert                             |
+| -------------- | -------------------------------- |
+| Image Repo     | `ghcr.io/omnixys/product:latest` |
+| Registry Login | `GITHUB_TOKEN`                   |
+| Branch         | `main`                           |
 
 ---
 

@@ -19,18 +19,18 @@ Einrichten eines automatisierten Build- und Push-Workflows für `omnixys-invento
   - Checkout
   - Login zu `ghcr.io`
   - Docker Build & Tag
-  - Docker Push nach `ghcr.io/omnixys/inventory-service:latest`
+  - Docker Push nach `ghcr.io/omnixys/inventory:latest`
 - [ ] Trigger: Push in `charts/omnixys-inventory/**` auf Branch `main`
 
 ---
 
 ## 🔧 Konfiguration
 
-| Parameter         | Wert                                             |
-|------------------|--------------------------------------------------|
-| Image Repo        | `ghcr.io/omnixys/inventory-service:latest`     |
-| Registry Login    | `GITHUB_TOKEN`                                  |
-| Branch            | `main`                                          |
+| Parameter      | Wert                               |
+| -------------- | ---------------------------------- |
+| Image Repo     | `ghcr.io/omnixys/inventory:latest` |
+| Registry Login | `GITHUB_TOKEN`                     |
+| Branch         | `main`                             |
 
 ---
 

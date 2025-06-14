@@ -19,18 +19,18 @@ Einrichten eines automatisierten Build- und Push-Workflows für `omnixys-notific
   - Checkout
   - Login zu `ghcr.io`
   - Docker Build & Tag
-  - Docker Push nach `ghcr.io/omnixys/notification-service:latest`
+  - Docker Push nach `ghcr.io/omnixys/notification:latest`
 - [ ] Trigger: Push in `charts/omnixys-notification/**` auf Branch `main`
 
 ---
 
 ## 🔧 Konfiguration
 
-| Parameter         | Wert                                             |
-|------------------|--------------------------------------------------|
-| Image Repo        | `ghcr.io/omnixys/notification-service:latest`     |
-| Registry Login    | `GITHUB_TOKEN`                                  |
-| Branch            | `main`                                          |
+| Parameter      | Wert                                  |
+| -------------- | ------------------------------------- |
+| Image Repo     | `ghcr.io/omnixys/notification:latest` |
+| Registry Login | `GITHUB_TOKEN`                        |
+| Branch         | `main`                                |
 
 ---
 

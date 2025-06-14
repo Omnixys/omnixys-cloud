@@ -18,6 +18,7 @@ Ein funktionsfähiges Helm-Chart für `omnixys-product` unter `charts/omnixys-pr
 - [ ] `values.yaml` mit Image, Ports, Ressourcen definieren
 - [ ] `templates/` mit Deployment, Service und (optional) Ingress ausstatten
 - [ ] Lokaler Test via:
+
   ```bash
   helm install omnixys-product ./charts/omnixys-product --namespace omnixys
   ```
@@ -26,12 +27,12 @@ Ein funktionsfähiges Helm-Chart für `omnixys-product` unter `charts/omnixys-pr
 
 ## 🔧 Konfiguration
 
-| Parameter       | Wert                                            |
-|----------------|--------------------------------------------------|
-| Namespace       | `omnixys`                                       |
-| Image           | `ghcr.io/omnixys/product-service:latest`     |
-| Container Port  | `8080`                                          |
-| Service Port    | siehe `port-konvention.md`                      |
+| Parameter      | Wert                             |
+| -------------- | -------------------------------- |
+| Namespace      | `omnixys`                        |
+| Image          | `ghcr.io/omnixys/product:latest` |
+| Container Port | siehe `port-konvention.md`       |
+| Service Port   | siehe `port-konvention.md`       |
 
 ---
 

@@ -19,18 +19,18 @@ Einrichten eines automatisierten Build- und Push-Workflows für `omnixys-shoppin
   - Checkout
   - Login zu `ghcr.io`
   - Docker Build & Tag
-  - Docker Push nach `ghcr.io/omnixys/shopping-cart-service:latest`
+  - Docker Push nach `ghcr.io/omnixys/shopping-cart:latest`
 - [ ] Trigger: Push in `charts/omnixys-shopping-cart/**` auf Branch `main`
 
 ---
 
 ## 🔧 Konfiguration
 
-| Parameter         | Wert                                             |
-|------------------|--------------------------------------------------|
-| Image Repo        | `ghcr.io/omnixys/shopping-cart-service:latest`     |
-| Registry Login    | `GITHUB_TOKEN`                                  |
-| Branch            | `main`                                          |
+| Parameter      | Wert                                   |
+| -------------- | -------------------------------------- |
+| Image Repo     | `ghcr.io/omnixys/shopping-cart:latest` |
+| Registry Login | `GITHUB_TOKEN`                         |
+| Branch         | `main`                                 |
 
 ---
 

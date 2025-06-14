@@ -2,7 +2,8 @@
 name: 📦 Helm Chart Setup – omnixys-logstream
 about: Helm-Chart für den Service omnixys-logstream erstellen
 title: "[Cloud] Helm-Chart für omnixys-logstream konfigurieren"
-labels: ["type:infra", "service:logstream", "kubernetes", "helm", "priority:high"]
+labels:
+  ["type:infra", "service:logstream", "kubernetes", "helm", "priority:high"]
 assignees: []
 ---
 
@@ -18,6 +19,7 @@ Ein funktionsfähiges Helm-Chart für `omnixys-logstream` unter `charts/omnixys-
 - [ ] `values.yaml` mit Image, Ports, Ressourcen definieren
 - [ ] `templates/` mit Deployment, Service und (optional) Ingress ausstatten
 - [ ] Lokaler Test via:
+
   ```bash
   helm install omnixys-logstream ./charts/omnixys-logstream --namespace omnixys
   ```
@@ -26,12 +28,12 @@ Ein funktionsfähiges Helm-Chart für `omnixys-logstream` unter `charts/omnixys-
 
 ## 🔧 Konfiguration
 
-| Parameter       | Wert                                            |
-|----------------|--------------------------------------------------|
-| Namespace       | `omnixys`                                       |
-| Image           | `ghcr.io/omnixys/logstream-service:latest`     |
-| Container Port  | `8080`                                          |
-| Service Port    | siehe `port-konvention.md`                      |
+| Parameter      | Wert                               |
+| -------------- | ---------------------------------- |
+| Namespace      | `omnixys`                          |
+| Image          | `ghcr.io/omnixys/logstream:latest` |
+| Container Port | siehe `port-konvention.md`         |
+| Service Port   | siehe `port-konvention.md`         |
 
 ---
 

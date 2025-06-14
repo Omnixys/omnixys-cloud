@@ -19,18 +19,18 @@ Einrichten eines automatisierten Build- und Push-Workflows für `omnixys-fronten
   - Checkout
   - Login zu `ghcr.io`
   - Docker Build & Tag
-  - Docker Push nach `ghcr.io/omnixys/frontend-service:latest`
+  - Docker Push nach `ghcr.io/omnixys/frontend:latest`
 - [ ] Trigger: Push in `charts/omnixys-frontend/**` auf Branch `main`
 
 ---
 
 ## 🔧 Konfiguration
 
-| Parameter         | Wert                                             |
-|------------------|--------------------------------------------------|
-| Image Repo        | `ghcr.io/omnixys/frontend-service:latest`     |
-| Registry Login    | `GITHUB_TOKEN`                                  |
-| Branch            | `main`                                          |
+| Parameter      | Wert                              |
+| -------------- | --------------------------------- |
+| Image Repo     | `ghcr.io/omnixys/frontend:latest` |
+| Registry Login | `GITHUB_TOKEN`                    |
+| Branch         | `main`                            |
 
 ---
 
