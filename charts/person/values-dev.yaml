@@ -10,3 +10,6 @@ secrets:
   MONGODB_USER_PASSWORT: devpass
   KC_SERVICE_CLIENT_ID: dev-client
   KC_SERVICE_SECRET: dev-secret
+
+hpa:
+  enabled: false
